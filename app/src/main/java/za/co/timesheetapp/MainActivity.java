@@ -3,8 +3,10 @@ package za.co.timesheetapp;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,10 +51,32 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        //FragmentManager fragmentManager = getSupportFragmentManager();
+        //fragmentManager.beginTransaction()
+        //        .replace(R.id.container,PlaceholderFragment.newInstance(position +1) )
+        //        .commit();
+
+        FragmentManager fragmentManager = getFragmentManager();
+
+        switch (position)
+        {
+            case 0:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, ManageLeaveFragment.newInstance("",""))
+                        .commit();
+                break;
+            case 1:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, ContactsFragment.newInstance("",""))
+                        .commit();
+                break;
+            case 2:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, TimesheetsFragment.newInstance("",""))
+                        .commit();
+                break;
+        }
+
     }
 
     public void onSectionAttached(int number) {
