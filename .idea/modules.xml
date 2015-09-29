@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TimesheetApp.iml" filepath="$PROJECT_DIR$/TimesheetApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TimesheetMobileApplication.iml" filepath="$PROJECT_DIR$/TimesheetMobileApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
