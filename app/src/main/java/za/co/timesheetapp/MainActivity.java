@@ -5,18 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import java.util.ArrayList;
+
+import Classes.DBHelper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -30,6 +29,8 @@ public class MainActivity extends AppCompatActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    TextView getTextView = null;
+    ArrayList<String> contacts = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,19 @@ public class MainActivity extends AppCompatActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        getTextView = (TextView)findViewById(R.id.textView);
+
+    }
+
+    //TEST Method - Unimplemented EB
+    public void loadData()
+    {
+        DBHelper helper = new DBHelper(this);
+        helper.insertContact("Elana","0760641703","elanablom@outlook.com");
+        contacts = helper.getAllContacts();
+        System.out.println(contacts.get(0).toString());
+        //getTextView.setText("Hello");
     }
 
     @Override
